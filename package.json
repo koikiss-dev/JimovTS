@@ -1,45 +1,71 @@
 {
-  "name": "jimov_scraper",
-  "version": "1.0.0",
-  "description": "API for scraping multimedia content such as anime, movies, series, and manga",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "server": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": ["scraper",
-  "api",
-  "multimedia",
-  "anime",
-  "movies",
-  "series",
-  "manga"],
+  "version": "0.1.0",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/koikiss-dev/jimov_api"
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
   },
-  "homepage": "https://github.com/koikiss-dev/jimov_api",
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "jimovts",
+  "author": "Yako",
+  "module": "dist/jimovts.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/jimovts.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/jimovts.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "dependencies": {
-<<<<<<< HEAD
-    "@consumet/extensions": "^1.3.0",
     "axios": "^1.2.3",
-=======
-    "axios": "^1.2.2",
->>>>>>> 43625e53d5ee5bcefdcc0faea60dea5eec97743a
     "body-parser": "^1.20.1",
     "cheerio": "^1.0.0-rc.12",
-    "express": "^4.18.2",
-    "helmet": "^6.0.1",
-    "morgan": "^1.10.0",
+    "jimovts": "^0.1.0",
     "puppeteer": "^19.4.1",
+    "ts-node": "^10.9.1",
     "underscore": "^1.13.6"
   },
   "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.2.4",
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/express": "^4.17.17",
+    "@types/morgan": "^1.9.4",
     "dotenv": "^16.0.3",
+    "husky": "^8.0.3",
     "nodemon": "^2.0.20",
     "npm-check-updates": "^16.6.2",
-    "pretty": "^2.0.0"
+    "pretty": "^2.0.0",
+    "size-limit": "^8.2.4",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.5"
   }
 }
